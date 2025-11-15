@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DMC Paracosmist LLC</title>
+  <meta name="description" content="Dark Monkey Chorus Paracosmist LLC — independent game and media studio. Project: Escape in the Basement." />
+  <style>
+    :root{
+      --bg:#0e0f12;
+      --card:#15171c;
+      --ink:#f5f6fa;
+      --muted:#b6bdd0;
+      --brand:#92e2ff;
+      --brand-2:#d4b1ff;
+      --ring:#363d4a;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+
+    body{
+      margin:0;
+      font-family:ui-sans-serif,-apple-system,Segoe UI,Roboto,Helvetica,Arial,system-ui;
+      line-height:1.7;
+      color:var(--ink);
+      background:var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a{color:var(--brand);text-decoration:none;transition:color .2s ease}
+    a:hover{color:var(--brand-2);text-decoration:underline}
+
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:28px 0 12px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand .title{font-weight:800;font-size:1.2rem;letter-spacing:.3px;color:var(--ink)}
+    .tag{font-size:.9rem;color:var(--muted)}
+
+    .hero{
+      margin:28px 0;
+      padding:40px;
+      border:1px solid var(--ring);
+      border-radius:16px;
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,0));
+      box-shadow:0 0 10px rgba(255,255,255,0.05);
+    }
+    .hero h1{font-size:clamp(1.8rem,3vw,2.4rem);margin:0 0 12px;color:#ffffff}
+    .hero p{margin:0;color:var(--muted)}
+
+    section{margin:40px 0}
+    h2{font-size:1.4rem;margin:0 0 10px;color:#f0f2f8}
+    .lede{color:var(--muted)}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--ring);
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:16px;
+      box-shadow:0 0 6px rgba(0,0,0,0.3);
+    }
+    .card h3{margin:0 0 6px;font-size:1.15rem;color:#f0f2f8}
+    .status{display:inline-block;font-size:.8rem;padding:2px 8px;border-radius:999px;border:1px solid var(--ring);color:var(--muted)}
+    .bullets{margin:10px 0 0;padding-left:18px}
+    .bullets li{margin:6px 0;color:var(--ink)}
+
+    .contact{display:grid;gap:12px}
+    .contact .item{display:flex;gap:10px;align-items:flex-start}
+    .badge{font-size:.78rem;padding:4px 8px;border:1px solid var(--ring);border-radius:999px;color:var(--brand-2);background-color:rgba(255,255,255,0.05)}
+
+    footer{margin:40px 0 16px;color:var(--muted);font-size:.9rem;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div>
+          <div class="title">DMC Paracosmist LLC</div>
+          <div class="tag">Independent game and media studio</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Escape in the Basement</h1>
+      <p>A sandbox survival story about resourcefulness, rebuilding, and the small freedoms we cling to when the world has run out of easy choices. Built to play how you want — offline, modded, or just exploring.</p>
+    </section>
+
+    <section id="project">
+      <h2>About the Project</h2>
+      <div class="card">
+        <p><strong>Escape in the Basement</strong> is a 3D exploration and survival game built around the idea of freedom within decay. No single path, no fixed outcome — just the player, the world, and what they make of it.</p>
+        <ul class="bullets">
+          <li>Customizable systems — switch combat, vehicles, or NPCs on or off</li>
+          <li>Procedural loot and environmental storytelling</li>
+          <li>Offline‑first design with mod support and local saves</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact card">
+        <div class="item">
+          <div class="badge">General</div>
+          <div>
+            <a href="mailto:query@dmcParacosmist.com">query@dmcParacosmist.com</a>
+            <div class="muted">Questions, collaboration, press.</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="badge">Updates</div>
+          <div>
+            <a href="mailto:hey@dmcParacosmist.com?subject=Subscribe">hey@dmcParacosmist.com</a>
+            <div class="muted">Email to request the newsletter. No spam, no sales funnels.</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="badge">Owner</div>
+          <div class="muted">Cory Domrose, sole proprietor</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> DMC Paracosmist LLC</footer>
+  </div>
+</body>
+</html>
