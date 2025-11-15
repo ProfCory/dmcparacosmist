@@ -5,90 +5,464 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DMC Paracosmist LLC</title>
   <meta name="description" content="Dark Monkey Chorus Paracosmist LLC — independent game and media studio. Project: Escape in the Basement." />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <style>
-    :root{
-      --bg:#0e0f12;
-      --card:#15171c;
-      --ink:#f5f6fa;
-      --muted:#b6bdd0;
-      --brand:#92e2ff;
-      --brand-2:#d4b1ff;
-      --ring:#363d4a;
+    :root {
+      --bg: #0e0f12;
+      --card: #15171c;
+      --ink: #f5f6fa;
+      --muted: #b6bdd0;
+      --brand: #92e2ff;
+      --brand-2: #d4b1ff;
+      --ring: #363d4a;
+      --gradient: linear-gradient(135deg, #92e2ff 0%, #d4b1ff 100%);
     }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-
-    body{
-      margin:0;
-      font-family:ui-sans-serif,-apple-system,Segoe UI,Roboto,Helvetica,Arial,system-ui;
-      line-height:1.7;
-      color:var(--ink);
-      background:var(--bg);
+    
+    * { box-sizing: border-box; margin: 0; padding: 0 }
+    
+    html, body { height: 100% }
+    
+    body {
+      font-family: 'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-
-    a{color:var(--brand);text-decoration:none;transition:color .2s ease}
-    a:hover{color:var(--brand-2);text-decoration:underline}
-
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-
-    header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:28px 0 12px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand .title{font-weight:800;font-size:1.2rem;letter-spacing:.3px;color:var(--ink)}
-    .tag{font-size:.9rem;color:var(--muted)}
-
-    .hero{
-      margin:28px 0;
-      padding:40px;
-      border:1px solid var(--ring);
-      border-radius:16px;
-      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,0));
-      box-shadow:0 0 10px rgba(255,255,255,0.05);
+    
+    /* Animated gradient background */
+    .bg-gradient {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, #0e0f12 0%, #15171c 50%, #0e0f12 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+      z-index: -2;
     }
-    .hero h1{font-size:clamp(1.8rem,3vw,2.4rem);margin:0 0 12px;color:#ffffff}
-    .hero p{margin:0;color:var(--muted)}
-
-    section{margin:40px 0}
-    h2{font-size:1.4rem;margin:0 0 10px;color:#f0f2f8}
-    .lede{color:var(--muted)}
-
-    .card{
-      background:var(--card);
-      border:1px solid var(--ring);
-      border-radius:14px;
-      padding:18px;
-      margin-bottom:16px;
-      box-shadow:0 0 6px rgba(0,0,0,0.3);
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50% }
+      50% { background-position: 100% 50% }
+      100% { background-position: 0% 50% }
     }
-    .card h3{margin:0 0 6px;font-size:1.15rem;color:#f0f2f8}
-    .status{display:inline-block;font-size:.8rem;padding:2px 8px;border-radius:999px;border:1px solid var(--ring);color:var(--muted)}
-    .bullets{margin:10px 0 0;padding-left:18px}
-    .bullets li{margin:6px 0;color:var(--ink)}
-
-    .contact{display:grid;gap:12px}
-    .contact .item{display:flex;gap:10px;align-items:flex-start}
-    .badge{font-size:.78rem;padding:4px 8px;border:1px solid var(--ring);border-radius:999px;color:var(--brand-2);background-color:rgba(255,255,255,0.05)}
-
-    footer{margin:40px 0 16px;color:var(--muted);font-size:.9rem;text-align:center}
+    
+    /* Glow effects */
+    .glow {
+      position: fixed;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--brand) 0%, transparent 70%);
+      filter: blur(60px);
+      opacity: 0.1;
+      z-index: -1;
+    }
+    
+    .glow-1 { top: 20%; left: 10%; background: radial-gradient(circle, #92e2ff 0%, transparent 70%) }
+    .glow-2 { bottom: 30%; right: 10%; background: radial-gradient(circle, #d4b1ff 0%, transparent 70%) }
+    
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+      position: relative;
+    }
+    
+    /* Header Styles */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 40px;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .logo-container:hover {
+      transform: translateY(-2px);
+    }
+    
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      object-fit: contain;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .company-name {
+      font-weight: 800;
+      font-size: 1.4rem;
+      background: linear-gradient(45deg, #fff, var(--brand));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .company-tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeIn 1s ease 0.5s forwards;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--brand);
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .nav-link.home {
+      background: rgba(255,255,255,0.1);
+      color: var(--ink);
+    }
+    
+    .nav-link.home:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-1px);
+    }
+    
+    .nav-link.github {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .nav-link.github:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--brand);
+    }
+    
+    .github-icon {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+    
+    /* Mobile menu button */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .mobile-menu-btn span {
+      width: 20px;
+      height: 2px;
+      background: var(--muted);
+      transition: all 0.3s ease;
+    }
+    
+    /* Hero section with more pizzazz */
+    .hero {
+      margin: 40px 0;
+      padding: 60px 40px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1s ease 0.3s forwards;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: var(--gradient);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { left: -100% }
+      100% { left: 100% }
+    }
+    
+    @keyframes fadeIn {
+      to { opacity: 1 }
+    }
+    
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0 0 20px;
+      background: linear-gradient(45deg, #fff, var(--brand));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    
+    /* Enhanced cards */
+    section {
+      margin: 60px 0;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1s ease 0.6s forwards;
+    }
+    
+    section:nth-child(3) { animation-delay: 0.7s }
+    section:nth-child(4) { animation-delay: 0.8s }
+    
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      margin: 0 0 20px;
+      color: #f0f2f8;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+    
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+      color: #f0f2f8;
+    }
+    
+    .status {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--ring);
+      color: var(--muted);
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .bullets {
+      margin: 15px 0 0;
+      padding-left: 20px;
+    }
+    
+    .bullets li {
+      margin: 10px 0;
+      color: var(--ink);
+      position: relative;
+    }
+    
+    .bullets li::marker {
+      color: var(--brand);
+    }
+    
+    /* Enhanced contact section */
+    .contact {
+      display: grid;
+      gap: 20px;
+    }
+    
+    .contact .item {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .contact .item:hover {
+      border-color: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.02);
+    }
+    
+    .badge {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      border: 1px solid var(--ring);
+      border-radius: 999px;
+      color: var(--brand-2);
+      background-color: rgba(255,255,255,0.05);
+      white-space: nowrap;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--gradient);
+      color: #000;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(146, 226, 255, 0.3);
+    }
+    
+    footer {
+      margin: 60px 0 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .wrap { padding: 16px }
+      .hero { padding: 40px 20px; margin: 20px 0 }
+      .site-header { flex-direction: column; text-align: center; gap: 10px }
+      .contact .item { flex-direction: column; gap: 10px }
+      
+      .mobile-menu-btn {
+        display: flex;
+      }
+      
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Animated background elements -->
+  <div class="bg-gradient"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  
   <div class="wrap">
-    <header>
-      <div class="brand">
-        <div>
-          <div class="title">DMC Paracosmist LLC</div>
-          <div class="tag">Independent game and media studio</div>
+    <!-- Updated Header with Logo and Navigation -->
+    <header class="site-header">
+      <a href="#" class="logo-container" onclick="scrollToTop()">
+        <img src="https://raw.githubusercontent.com/ProfCory/dmcparacosmist/main/DMCP-Picsart-BackgroundRemover.png" 
+             alt="DMC Paracosmist Logo" 
+             class="logo">
+        <div class="logo-text">
+          <div class="company-name">DMC Paracosmist LLC</div>
+          <div class="company-tagline">Independent Game Studio</div>
         </div>
-      </div>
+      </a>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="nav-links">
+        <a href="#" class="nav-link home">Home</a>
+        <a href="#project" class="nav-link">Project</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="https://github.com/ProfCory/dmcparacosmist" class="nav-link github" target="_blank">
+          <svg class="github-icon" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.621-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </nav>
     </header>
 
     <section class="hero">
       <h1>Escape in the Basement</h1>
       <p>A sandbox survival story about resourcefulness, rebuilding, and the small freedoms we cling to when the world has run out of easy choices. Built to play how you want — offline, modded, or just exploring.</p>
+      <div style="margin-top: 20px;">
+        <a href="mailto:query@dmcparacosmist.com" class="btn">Contact Us</a>
+      </div>
     </section>
-
+    
     <section id="project">
       <h2>About the Project</h2>
       <div class="card">
@@ -100,32 +474,86 @@
         </ul>
       </div>
     </section>
-
+    
     <section id="contact">
       <h2>Contact</h2>
-      <div class="contact card">
-        <div class="item">
-          <div class="badge">General</div>
-          <div>
-            <a href="mailto:query@dmcParacosmist.com">query@dmcParacosmist.com</a>
-            <div class="muted">Questions, collaboration, press.</div>
+      <div class="contact">
+        <div class="card">
+          <div class="item">
+            <div class="badge">General</div>
+            <div>
+              <a href="mailto:query@dmcparacosmist.com" style="font-size: 1.1rem; font-weight: 600;">query@dmcParacosmist.com</a>
+              <div style="color: var(--muted); margin-top: 5px;">Questions, collaboration, press.</div>
+            </div>
           </div>
-        </div>
-        <div class="item">
-          <div class="badge">Updates</div>
-          <div>
-            <a href="mailto:hey@dmcParacosmist.com?subject=Subscribe">hey@dmcParacosmist.com</a>
-            <div class="muted">Email to request the newsletter. No spam, no sales funnels.</div>
+          
+          <div class="item">
+            <div class="badge">Updates</div>
+            <div>
+              <a href="mailto:hey@dmcparacosmist.com?subject=Subscribe" style="font-size: 1.1rem; font-weight: 600;">hey@dmcParacosmist.com</a>
+              <div style="color: var(--muted); margin-top: 5px;">Email to request the newsletter. No spam, no sales funnels.</div>
+            </div>
           </div>
-        </div>
-        <div class="item">
-          <div class="badge">Owner</div>
-          <div class="muted">Cory Domrose, sole proprietor</div>
+          
+          <div class="item">
+            <div class="badge">Owner</div>
+            <div style="color: var(--muted);">Cory Domrose, sole proprietor</div>
+          </div>
         </div>
       </div>
     </section>
-
+    
     <footer>© <span id="y"></span> DMC Paracosmist LLC</footer>
   </div>
+
+  <script>
+    // Current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.remove('active');
+      });
+    });
+    
+    // Parallax effect on scroll
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.glow');
+      parallaxElements.forEach(el => {
+        const speed = el.classList.contains('glow-1') ? 0.5 : 0.3;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
+  </script>
 </body>
 </html>
