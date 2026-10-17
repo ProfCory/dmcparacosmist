@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "kind": "loot",
+  "data": {
+    "road": [
+      {
+        "name": "Siphon can",
+        "resource": "fuel",
+        "amount": 12
+      },
+      {
+        "name": "Tool roll",
+        "resource": "parts",
+        "amount": 2
+      },
+      {
+        "name": "Lost lunchbox",
+        "resource": "food",
+        "amount": 12
+      }
+    ],
+    "near": [
+      {
+        "name": "Sealed water jug",
+        "resource": "water",
+        "amount": 20
+      },
+      {
+        "name": "Pantry tin",
+        "resource": "food",
+        "amount": 18
+      },
+      {
+        "name": "Spare components",
+        "resource": "parts",
+        "amount": 3
+      }
+    ],
+    "away": [
+      {
+        "name": "Rainwater cache",
+        "resource": "water",
+        "amount": 25
+      },
+      {
+        "name": "Forager’s crate",
+        "resource": "food",
+        "amount": 25
+      },
+      {
+        "name": "Collector’s keepsake",
+        "resource": "scrap",
+        "amount": 6
+      }
+    ]
+  }
+}

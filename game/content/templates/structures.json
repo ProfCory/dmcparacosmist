@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "kind": "structures",
+  "data": {
+    "small": [
+      "Abandoned kiosk",
+      "Roadside shelter",
+      "Pump shed"
+    ],
+    "medium": [
+      "Quiet diner",
+      "Repair garage",
+      "Empty farmhouse"
+    ],
+    "large": [
+      "Container depot",
+      "Grain warehouse",
+      "Derelict service plaza"
+    ]
+  }
+}

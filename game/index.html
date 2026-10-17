@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#202c26" />
+    <title>Escape in the Basement — Playable prototype</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas
+      id="world"
+      aria-label="3D game world. WASD to move, drag to look, E to interact, M for modes."
+      tabindex="0"
+    ></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <header>
+      <a href="../" class="brand">DMC <span>PARACOSMIST</span></a>
+      <div class="edition">
+        ESCAPE IN THE BASEMENT <small>PROTOTYPE / 0.1</small>
+      </div>
+      <button id="menu-button" aria-label="Open game menu">
+        Menu <kbd>Esc</kbd>
+      </button>
+    </header>
+    <div id="location">
+      <span class="eyebrow">TAPE 00 / ORIGIN</span>
+      <h1>The basement.</h1>
+      <p>A room full of possible worlds.</p>
+    </div>
+    <div id="resources" aria-label="Journey resources"></div>
+    <div id="crosshair" aria-hidden="true">+</div>
+    <div id="objective" role="status"></div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <footer>
+      <div class="controls">
+        <span><kbd>W A S D</kbd> Move</span><span>Drag to look</span
+        ><span><kbd>E</kbd> Interact</span>
+      </div>
+      <div>
+        <button id="interact">Interact <kbd>E</kbd></button
+        ><button id="modes-button">Modes <kbd>M</kbd></button>
+      </div>
+    </footer>
+    <div id="touch">
+      <div class="dpad">
+        <button data-key="KeyW" aria-label="Move forward">↑</button
+        ><button data-key="KeyA" aria-label="Move left">←</button
+        ><button data-key="KeyS" aria-label="Move backward">↓</button
+        ><button data-key="KeyD" aria-label="Move right">→</button>
+      </div>
+      <div class="lookpad">
+        <button data-key="ArrowLeft" aria-label="Turn left">↶</button
+        ><button data-key="ArrowRight" aria-label="Turn right">↷</button>
+      </div>
+    </div>
+    <dialog id="panel" aria-labelledby="panel-title">
+      <div id="panel-body"></div>
+    </dialog>
+    <input
+      id="file-input"
+      type="file"
+      accept=".json,application/json"
+      hidden
+    /><input id="folder-input" type="file" webkitdirectory multiple hidden />
+    <noscript
+      >This game requires JavaScript and WebGL. Your studio website is available
+      at the link above.</noscript
+    >
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
