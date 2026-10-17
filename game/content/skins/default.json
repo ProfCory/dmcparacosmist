@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "kind": "skins",
+  "data": [
+    {
+      "name": "Beasts",
+      "apex": "#a96e48",
+      "sub": "#d2b68b"
+    },
+    {
+      "name": "Robots",
+      "apex": "#719eaa",
+      "sub": "#abc4c8"
+    },
+    {
+      "name": "Undead",
+      "apex": "#76865f",
+      "sub": "#b2ba87"
+    }
+  ]
+}

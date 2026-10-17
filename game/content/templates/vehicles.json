@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "kind": "vehicles",
+  "data": [
+    {
+      "name": "Sun-faded estate",
+      "fuel": 26,
+      "condition": 65
+    },
+    {
+      "name": "Utility pickup",
+      "fuel": 22,
+      "condition": 75
+    },
+    {
+      "name": "Old delivery van",
+      "fuel": 30,
+      "condition": 55
+    }
+  ]
+}
